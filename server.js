@@ -47,6 +47,28 @@ app.post("/api/notes", (req, res) => {
   res.send("You created a new note");
 });
 
+// API Delete Requests
+app.delete("/api/notes/:id", (req, res) => {
+  const deleteNoteID = req.params.id;
+
+  fs.readFile("./db/db.json", (error, data) => {
+    if (error) throw error;
+    dbData = JSON.parse(data);
+    dbData.map((note, index) => {
+      if (note.id === Number(deleteNoteID)) {
+        dbData.splice(index, 1);
+      }
+    });
+    stringData = JSON.stringify(dbData);
+
+    fs.writeFile("./db/db.json", stringData, (error, data) => {
+      if (error) throw error;
+    });
+  });
+
+  res.send("You have successfuly delete a note");
+});
+
 // add a route. This can go under the existing routes but above app.listen()
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "./public/index.html"));
