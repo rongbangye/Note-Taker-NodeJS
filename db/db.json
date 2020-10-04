@@ -1,4 +1,1 @@
-[
-  { "title": "Daily ", "text": "Eat, Work, Code, Sleep", "id": 1 },
-  { "title": "Work", "text": "From 8 to 5, finish my job", "id": 2 }
-]
+[{"title":"Daily ","text":"Eat, Work, Code, Sleep","id":1},{"title":"Work","text":"From 8 to 5, finish my job","id":2},{"title":"Code","text":"Do it 12 hours a day, you will be good","id":3}]
