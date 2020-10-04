@@ -6,6 +6,8 @@ const PORT = process.env.PORT || 3001;
 // Instantiate the server, then tell it to listen for request
 const app = express();
 
+app.use(express.static(__dirname + "/public"));
+
 // API GET Requests
 app.get("/api/notes", (req, res) => {
   fs.readFile("./db/db.json", (err, data) => {
